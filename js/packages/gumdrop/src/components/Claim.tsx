@@ -727,7 +727,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
 
   // async computed
   const [asyncNeedsTemporalSigner, setNeedsTemporalSigner] =
-    React.useState<boolean>(true);
+    React.useState<boolean>(false);
 
   React.useEffect(() => {
     const wrap = async () => {
@@ -1300,7 +1300,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
     </React.Fragment>
   );
 
-  return (
+  return allFieldsPopulated ? (
     <Stack spacing={2}>
       {asyncNeedsTemporalSigner && stepper}
       {steps[stepToUse].inner(handleNext)}
@@ -1310,5 +1310,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
         </Button>
       )}
     </Stack>
+  ) : (
+    <div>Please double check the link that was provided to you.</div>
   );
 };
