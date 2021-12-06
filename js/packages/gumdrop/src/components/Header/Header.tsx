@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, List, ListItem, ListItemText } from '@mui/material';
 
 import { Settings } from '../Settings';
 
@@ -13,6 +13,20 @@ export const Header = ({ narrow }: { narrow: boolean }) => {
         overflow: 'auto',
       }}
     >
+      <List sx={{ border: 'none' }}>
+        <ListItem sx={{ margin: '0 0 0 10px', padding: 0 }}>
+          <ListItemText
+            sx={{ border: 'none' }}
+            primary="SkeleDAO NFT Early Access"
+            primaryTypographyProps={{
+              fontSize: '1.2rem',
+              fontWeight: 'medium',
+              letterSpacing: 0,
+              border: 'none',
+            }}
+          />
+        </ListItem>
+      </List>
       <Box sx={{ flexGrow: 1, minWidth: '36px' }}></Box>
       <Settings narrow={narrow} />
     </Box>
