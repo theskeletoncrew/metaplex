@@ -40,9 +40,9 @@ export const ENDPOINTS = [
 
 const url = new URL(window.location.href);
 const conn = url.searchParams.get('conn');
+const chosenConnection = conn == 'devnet' ? ENDPOINTS[1] : ENDPOINTS[0];
 
-const DEFAULT =
-  conn == 'devnet' ? ENDPOINTS[1].endpoint : ENDPOINTS[0].endpoint;
+const DEFAULT = chosenConnection.endpoint;
 
 interface ConnectionConfig {
   connection: Connection;
@@ -57,7 +57,7 @@ const ConnectionContext = React.createContext<ConnectionConfig>({
   endpoint: DEFAULT,
   setEndpoint: () => {},
   connection: new Connection(DEFAULT, 'recent'),
-  env: ENDPOINTS[0].name,
+  env: chosenConnection.name,
   tokens: [],
   tokenMap: new Map<string, TokenInfo>(),
 });
@@ -69,7 +69,7 @@ export function ConnectionProvider({
 }) {
   const [endpoint, setEndpoint] = useLocalStorageState(
     'connectionEndpoint',
-    ENDPOINTS[0].endpoint,
+    chosenConnection.endpoint,
   );
 
   const connection = useMemo(
@@ -78,7 +78,8 @@ export function ConnectionProvider({
   );
 
   const env =
-    ENDPOINTS.find(end => end.endpoint === endpoint)?.name || ENDPOINTS[0].name;
+    ENDPOINTS.find(end => end.endpoint === endpoint)?.name ||
+    chosenConnection.name;
 
   const [tokens, setTokens] = useState<TokenInfo[]>([]);
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
