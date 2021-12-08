@@ -17,7 +17,7 @@ export const Header = ({ narrow }: { narrow: boolean }) => {
         <ListItem sx={{ margin: '0 0 0 10px', padding: 0 }}>
           <ListItemText
             sx={{ border: 'none' }}
-            primary="SkeleDAO NFT Early Access"
+            primary="SkeleDAO Early Access"
             primaryTypographyProps={{
               fontSize: '1.2rem',
               fontWeight: 'medium',

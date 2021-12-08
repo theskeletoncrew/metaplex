@@ -1,16 +1,11 @@
 {
-  "name": "Gumdrop",
-  "short_name": "Gumdrop",
+  "name": "SkeleDAO Early Access",
+  "short_name": "SkeleDAO Early Access",
   "icons": [
     {
-      "src": "/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
+      "src": "/icon.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg"
     }
   ]
 }
