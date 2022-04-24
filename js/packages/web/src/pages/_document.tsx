@@ -24,25 +24,12 @@ export default class MetaplexDocument extends Document {
           />
           <link
             rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="/favicon-96x96.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
+            href="https://arweave.net:443/8kHg-_0nUV4uSBq_WXozuej79H9wGIulhQfjww8ED54"
           />
           <meta name="theme-color" content="#000000" />
-          <meta name="description" content="Metaplex NFT Marketplace" />
+          <meta name="description" content="Skeleton Crew Art Drops" />
           <link rel="manifest" href="/manifest.json" />
+          <link rel="stylesheet" href="https://use.typekit.net/nxe8kpf.css" />
           <link
             rel="stylesheet"
             href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"

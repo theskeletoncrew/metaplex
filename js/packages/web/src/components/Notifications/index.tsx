@@ -570,20 +570,21 @@ export function Notifications() {
   const justContent = (
     <Popover placement="bottomLeft" content={content} trigger="click">
       <img src={'/bell.svg'} style={{ cursor: 'pointer' }} />
-      {!!notifications.length && (
+      {/* {!!notifications.length && (
         <div className="mobile-notification">{notifications.length - 1}</div>
-      )}
+      )} */}
     </Popover>
   );
 
-  if (notifications.length === 0) return justContent;
-  else
-    return (
-      <Badge
-        count={notifications.length - 1}
-        style={{ backgroundColor: 'white', color: 'black' }}
-      >
-        {justContent}
-      </Badge>
-    );
+  return justContent;
+  // if (notifications.length === 0) return justContent;
+  // else
+  //   return (
+  //     <Badge
+  //       count={notifications.length - 1}
+  //       style={{ backgroundColor: 'white', color: 'black' }}
+  //     >
+  //       {justContent}
+  //     </Badge>
+  //   );
 }

@@ -22,7 +22,7 @@ export const AppLayout = React.memo(function AppLayoutImpl(props: any) {
           <Content
             style={{
               overflow: 'scroll',
-              padding: '30px 48px ',
+              padding: '0 24px ',
             }}
           >
             {props.children}

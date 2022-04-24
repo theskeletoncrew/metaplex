@@ -66,11 +66,11 @@ export const MetaplexMenu = () => {
           }
         >
           <div className="site-card-wrapper mobile-menu-modal">
-            <Menu onClick={() => setIsModalVisible(false)}>
+            {/* <Menu onClick={() => setIsModalVisible(false)}>
               {getDefaultLinkActions(connected).map((item, idx) => (
                 <Menu.Item key={idx}>{item}</Menu.Item>
               ))}
-            </Menu>
+            </Menu> */}
             <div className="actions">
               {!connected ? (
                 <div className="actions-buttons">
@@ -107,13 +107,15 @@ export const MetaplexMenu = () => {
       </>
     );
 
-  return <DefaultActions />;
+  return ''; //<DefaultActions />;
 };
 
 export const LogoLink = () => {
   return (
     <Link to={`/`}>
-      <img src={'/metaplex-logo.svg'} />
+      <Button className="app-btn">
+        <span className="sctitle">Skeleton Crew Art Drops</span>
+      </Button>
     </Link>
   );
 };
