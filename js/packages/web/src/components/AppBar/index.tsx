@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Menu, Modal } from 'antd';
+import { Button, /* Menu,*/ Modal } from 'antd';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Notifications } from '../Notifications';
 import useWindowDimensions from '../../utils/layout';
@@ -14,36 +14,36 @@ import {
 import { ConnectButton } from '@oyster/common';
 import { MobileNavbar } from '../MobileNavbar';
 
-const getDefaultLinkActions = (connected: boolean) => {
-  return [
-    <Link to={`/`} key={'explore'}>
-      <Button className="app-btn">Explore</Button>
-    </Link>,
-    <Link to={`/collections`} key={'collections'}>
-      <Button className="app-btn">Collections</Button>
-    </Link>,
-    <Link to={`/artworks`} key={'artwork'}>
-      <Button className="app-btn">{connected ? 'My Items' : 'Artwork'}</Button>
-    </Link>,
-    <Link to={`/artists`} key={'artists'}>
-      <Button className="app-btn">Creators</Button>
-    </Link>,
-  ];
-};
+// const getDefaultLinkActions = (connected: boolean) => {
+//   return [
+//     <Link to={`/`} key={'explore'}>
+//       <Button className="app-btn">Explore</Button>
+//     </Link>,
+//     <Link to={`/collections`} key={'collections'}>
+//       <Button className="app-btn">Collections</Button>
+//     </Link>,
+//     <Link to={`/artworks`} key={'artwork'}>
+//       <Button className="app-btn">{connected ? 'My Items' : 'Artwork'}</Button>
+//     </Link>,
+//     <Link to={`/artists`} key={'artists'}>
+//       <Button className="app-btn">Creators</Button>
+//     </Link>,
+//   ];
+// };
 
-const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
-  const { connected } = useWallet();
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: vertical ? 'column' : 'row',
-      }}
-    >
-      {getDefaultLinkActions(connected)}
-    </div>
-  );
-};
+// const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
+//   const { connected } = useWallet();
+//   return (
+//     <div
+//       style={{
+//         display: 'flex',
+//         flexDirection: vertical ? 'column' : 'row',
+//       }}
+//     >
+//       {getDefaultLinkActions(connected)}
+//     </div>
+//   );
+// };
 
 export const MetaplexMenu = () => {
   const { width } = useWindowDimensions();
@@ -107,7 +107,7 @@ export const MetaplexMenu = () => {
       </>
     );
 
-  return ''; //<DefaultActions />;
+  return <span></span>; //<DefaultActions />;
 };
 
 export const LogoLink = () => {
