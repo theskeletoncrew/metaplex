@@ -766,7 +766,7 @@ export const AuctionCard = ({
                           myPayingAccount.pubkey,
                           auctionView,
                           accountByMint,
-                          tokenDecimals > 0 ? Math.round(value) : value,
+                          tokenDecimals == 0 ? Math.round(value) : value,
                         );
                         setLastBid(bid);
                         // setShowBidModal(false);
