@@ -249,11 +249,12 @@ export const AuctionCard = ({
     ? 'SOL'
     : 'CUSTOM';
 
-  const tokenDecimals = tokenInfo.decimals
-    ? tokenInfo.decimals
-    : symbol != 'SOL'
-    ? 0
-    : 9;
+  const tokenDecimals =
+    tokenInfo && tokenInfo.decimals
+      ? tokenInfo.decimals
+      : symbol != 'SOL'
+      ? 0
+      : 9;
   console.log(symbol);
   console.log(tokenInfo);
   console.log(tokenDecimals);
