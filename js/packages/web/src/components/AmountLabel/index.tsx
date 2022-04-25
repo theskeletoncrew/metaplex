@@ -21,7 +21,7 @@ interface IAmountLabel {
 export const AmountLabel = (props: IAmountLabel) => {
   const {
     amount: _amount,
-    displayUSD = true,
+    displayUSD = false,
     displaySymbol = '',
     title = '',
     style = {},
