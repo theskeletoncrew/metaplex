@@ -766,7 +766,6 @@ export const AuctionCard = ({
                         // setShowBidModal(false);
                         setShowBidPlaced(true);
                         setLoading(false);
-                        window.location.reload();
                       }
                     }}
                   >
