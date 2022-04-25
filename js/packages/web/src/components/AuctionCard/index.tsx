@@ -249,12 +249,17 @@ export const AuctionCard = ({
     ? 'SOL'
     : 'CUSTOM';
 
+  const tokenDecimals = tokenInfo.decimals
+    ? tokenInfo.decimals
+    : symbol != 'SOL'
+    ? 0
+    : 9;
   console.log(symbol);
   console.log(tokenInfo);
-  console.log(tokenInfo.decimals);
+  console.log(tokenDecimals);
 
   const LAMPORTS_PER_MINT = tokenInfo
-    ? Math.ceil(10 ** tokenInfo.decimals)
+    ? Math.ceil(10 ** tokenDecimals)
     : LAMPORTS_PER_SOL;
 
   //console.log("[--P]AuctionCard", tokenInfo, mintKey)
@@ -718,7 +723,7 @@ export const AuctionCard = ({
                     className="input sol-input-bid"
                     value={value}
                     onChange={setValue}
-                    precision={tokenInfo.decimals > 0 ? 4 : 0}
+                    precision={tokenDecimals > 0 ? 4 : 0}
                     style={{ fontSize: 16, lineHeight: '16px' }}
                     formatter={value =>
                       value
@@ -760,7 +765,7 @@ export const AuctionCard = ({
                           myPayingAccount.pubkey,
                           auctionView,
                           accountByMint,
-                          tokenInfo.decimals > 0 ? Math.round(value) : value,
+                          tokenDecimals > 0 ? Math.round(value) : value,
                         );
                         setLastBid(bid);
                         // setShowBidModal(false);
