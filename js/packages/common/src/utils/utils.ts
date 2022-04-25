@@ -202,7 +202,7 @@ export function fromLamports(
       : account.info.amount.toNumber(),
   );
 
-  const precision = Math.pow(10, 0);
+  const precision = Math.pow(10, mint?.decimals || 9);
   return (amount / precision) * rate;
 }
 
