@@ -112,11 +112,11 @@ export const MetaplexMenu = () => {
 
 export const LogoLink = () => {
   return (
-    <Link to={`/`}>
+    <a href="https://market.skeletoncrew.rip/drops">
       <Button className="app-btn">
         <span className="sctitle">Skeleton Crew Art Drops</span>
       </Button>
-    </Link>
+    </a>
   );
 };
 
