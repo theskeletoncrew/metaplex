@@ -255,9 +255,6 @@ export const AuctionCard = ({
       : symbol != 'SOL'
       ? 0
       : 9;
-  console.log(symbol);
-  console.log(tokenInfo);
-  console.log(tokenDecimals);
 
   const LAMPORTS_PER_MINT = tokenInfo
     ? Math.ceil(10 ** tokenDecimals)
