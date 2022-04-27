@@ -101,7 +101,7 @@ export const InstructionsModal: React.FC<ModalProps> = ({
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}
-        className={'modal-box instructions-modal'}
+        className={'modal-box instructions-modal big-modal'}
         closeIcon={<img src={'/modals/close.svg'} />}
       >
         <ModalContent>
