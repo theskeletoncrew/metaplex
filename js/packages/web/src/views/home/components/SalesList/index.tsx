@@ -50,7 +50,6 @@ export const SalesListView = (props: { collectionMintFilter?: string }) => {
           useBannerBg
         />
       )} */}
-      <hr style={{ borderColor: '#999999', width: '100%' }} />
       <Layout>
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Col style={{ width: '100%', marginTop: '20px' }}>

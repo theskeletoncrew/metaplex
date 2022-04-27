@@ -18,6 +18,9 @@ export const AppLayout = React.memo(function AppLayoutImpl(props: any) {
         <Header className="App-Bar">
           <AppBar />
         </Header>
+        <div style={{ padding: '0 30px', marginBottom: '40px' }}>
+          <hr style={{ borderColor: '#999999', width: '100%' }} />
+        </div>
         <Layout id={'width-layout'}>
           <Content
             style={{

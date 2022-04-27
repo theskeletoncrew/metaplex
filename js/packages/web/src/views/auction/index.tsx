@@ -224,7 +224,10 @@ export const AuctionView = () => {
             <List grid={{ column: 4 }}>
               {attributes.map((attribute, index) => (
                 <List.Item key={`${attribute.value}-${index}`}>
-                  <Card title={attribute.trait_type}>{attribute.value}</Card>
+                  <div>
+                    {attribute.trait_type}: {attribute.value}
+                  </div>
+                  {/* <Card title={attribute.trait_type}>{attribute.value}</Card> */}
                 </List.Item>
               ))}
             </List>
@@ -299,10 +302,13 @@ export const AuctionView = () => {
           {attributes && (
             <div className={'about-nft-collection a-attributes'}>
               <h6>Attributes</h6>
-              <List grid={{ column: 4 }}>
+              <List>
                 {attributes.map((attribute, index) => (
                   <List.Item key={`${attribute.value}-${index}`}>
-                    <Card title={attribute.trait_type}>{attribute.value}</Card>
+                    <div>
+                      {attribute.trait_type}: {attribute.value}
+                    </div>
+                    {/* <Card title={attribute.trait_type}>{attribute.value}</Card> */}
                   </List.Item>
                 ))}
               </List>
@@ -325,7 +331,15 @@ export const AuctionView = () => {
               <div className={'info-container'}>
                 <div className={'info-component'}>
                   <h6 className={'info-title'}>CREATED BY</h6>
-                  <span>{<MetaAvatar creators={creators} />}</span>
+                  <span>
+                    {
+                      <MetaAvatar
+                        creators={
+                          creators.length > 0 ? creators.slice(-1) : creators
+                        }
+                      />
+                    }
+                  </span>
                 </div>
                 <div className={'info-component'}>
                   <h6 className={'info-title'}>Edition</h6>

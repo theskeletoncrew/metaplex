@@ -45,7 +45,7 @@ export const ENDPOINTS: Array<Endpoint> = [
   {
     name: 'mainnet-beta',
     label: 'mainnet-beta',
-    url: 'https://api.metaplex.solana.com/',
+    url: 'https://dry-quiet-sun.solana-mainnet.quiknode.pro/32e6637d5697093923c7dc9c96ff0b7a8587e0dc/',
     chainId: ChainId.MainnetBeta,
   },
   {

@@ -22,50 +22,69 @@ import { CollectionDetailView } from './views/collections/collectionDetail';
 
 export function Routes() {
   const shouldEnableNftPacks = process.env.NEXT_ENABLE_NFT_PACKS === 'true';
+  const shouldAllowVisibility = false; //true;
   return (
     <>
       <HashRouter basename={'/'}>
         <Providers>
           <Switch>
-            {shouldEnableNftPacks && (
+            {shouldAllowVisibility && shouldEnableNftPacks && (
               <Route
                 exact
                 path="/admin/pack/create/:stepParam?"
                 component={() => <PackCreateView />}
               />
             )}
-            {shouldEnableNftPacks && (
+            {shouldAllowVisibility && shouldEnableNftPacks && (
               <Route
                 exact
                 path="/pack/:packKey"
                 component={() => <PackView />}
               />
             )}
-            <Route exact path="/admin" component={() => <AdminView />} />
-            <Route
-              exact
-              path="/analytics"
-              component={() => <AnalyticsView />}
-            />
-            <Route
-              exact
-              path="/art/create/:step_param?"
-              component={() => <ArtCreateView />}
-            />
-            <Route
-              exact
-              path="/artworks/:id?"
-              component={() => <ArtworksView />}
-            />
+            {shouldAllowVisibility && (
+              <Route exact path="/admin" component={() => <AdminView />} />
+            )}
+            {shouldAllowVisibility && (
+              <Route
+                exact
+                path="/analytics"
+                component={() => <AnalyticsView />}
+              />
+            )}
+            {shouldAllowVisibility && (
+              <Route
+                exact
+                path="/art/create/:step_param?"
+                component={() => <ArtCreateView />}
+              />
+            )}
+            {shouldAllowVisibility && (
+              <Route
+                exact
+                path="/artworks/:id?"
+                component={() => <ArtworksView />}
+              />
+            )}
             <Route exact path="/art/:id" component={() => <ArtView />} />
-            <Route exact path="/artists/:id" component={() => <ArtistView />} />
-            <Route exact path="/artists" component={() => <ArtistsView />} />
+            {shouldAllowVisibility && (
+              <Route
+                exact
+                path="/artists/:id"
+                component={() => <ArtistView />}
+              />
+            )}
+            {shouldAllowVisibility && (
+              <Route exact path="/artists" component={() => <ArtistsView />} />
+            )}
 
-            <Route
-              exact
-              path="/auction/create/:step_param?"
-              component={() => <AuctionCreateView />}
-            />
+            {shouldAllowVisibility && (
+              <Route
+                exact
+                path="/auction/create/:step_param?"
+                component={() => <AuctionCreateView />}
+              />
+            )}
             <Route
               exact
               path="/auction/:id"
@@ -76,13 +95,27 @@ export function Routes() {
               path="/auction/:id/billing"
               component={() => <BillingView />}
             />
-            <Route path="/about" component={() => <StaticPageView />} />
-            <Route path="/collections" component={() => <CollectionsView />} />
+            {shouldAllowVisibility && (
+              <Route path="/about" component={() => <StaticPageView />} />
+            )}
+            {shouldAllowVisibility && (
+              <Route
+                path="/collections"
+                component={() => <CollectionsView />}
+              />
+            )}
+            {shouldAllowVisibility && (
+              <Route
+                path="/collection/:id"
+                component={() => <CollectionDetailView />}
+              />
+            )}
             <Route
-              path="/collection/:id"
-              component={() => <CollectionDetailView />}
+              path="/"
+              component={() => (
+                <HomeView shouldAllowVisibility={shouldAllowVisibility} />
+              )}
             />
-            <Route path="/" component={() => <HomeView />} />
           </Switch>
         </Providers>
       </HashRouter>
