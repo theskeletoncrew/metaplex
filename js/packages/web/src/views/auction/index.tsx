@@ -521,7 +521,7 @@ const BidLine = (props: {
                     tokenInfo?.symbol == 'SOL'
                       ? formatTokenAmount(bid.info.lastBid, {
                           mintAuthority: null,
-                          supply: u64(0),
+                          supply: new u64(0),
                           decimals: 9,
                           isInitialized: true,
                           freezeAuthority: null,
