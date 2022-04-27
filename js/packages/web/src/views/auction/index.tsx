@@ -572,7 +572,17 @@ const BidLine = (props: {
                 displaySymbol={tokenInfo?.symbol || 'CUSTOM'}
                 tokenInfo={tokenInfo}
                 iconSize={24}
-                amount={formatTokenAmount(bid.info.lastBid, mint)}
+                amount={
+                  tokenInfo?.symbol == 'SOL'
+                    ? formatTokenAmount(bid.info.lastBid, {
+                        mintAuthority: null,
+                        supply: new u64(0),
+                        decimals: 9,
+                        isInitialized: true,
+                        freezeAuthority: null,
+                      } as MintInfo)
+                    : formatTokenAmount(bid.info.lastBid, mint)
+                }
               />
             </div>
           )}
