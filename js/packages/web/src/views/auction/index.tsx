@@ -13,7 +13,7 @@ import {
   useExtendedArt,
 } from '../../hooks';
 import { ArtContent } from '../../components/ArtContent';
-
+import { u64 } from '@solana/spl-token';
 import { format } from 'timeago.js';
 
 import {
@@ -517,7 +517,17 @@ const BidLine = (props: {
                   }}
                   displaySymbol={tokenInfo?.symbol || 'CUSTOM'}
                   iconSize={24}
-                  amount={formatTokenAmount(bid.info.lastBid, mint)}
+                  amount={
+                    tokenInfo?.symbol == 'SOL'
+                      ? formatTokenAmount(bid.info.lastBid, {
+                          mintAuthority: null,
+                          supply: u64(0),
+                          decimals: 9,
+                          isInitialized: true,
+                          freezeAuthority: null,
+                        } as MintInfo)
+                      : formatTokenAmount(bid.info.lastBid, mint)
+                  }
                 />
               </div>
             )}
