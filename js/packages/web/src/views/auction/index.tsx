@@ -516,6 +516,7 @@ const BidLine = (props: {
                     alignItems: 'center',
                   }}
                   displaySymbol={tokenInfo?.symbol || 'CUSTOM'}
+                  tokenInfo={tokenInfo}
                   iconSize={24}
                   amount={
                     tokenInfo?.symbol == 'SOL'
