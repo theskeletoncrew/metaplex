@@ -712,6 +712,7 @@ export const AuctionBids = ({
             boxShadow: 'unset',
             borderRadius: 0,
           }}
+          centered
           width={width < 768 ? width - 10 : width}
           className="big-modal"
         >
