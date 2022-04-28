@@ -656,29 +656,31 @@ export const AuctionBids = ({
     : AuctionState.Created;
   const bidLines = useMemo(() => {
     let activeBidIndex = 0;
-    return bids.map((bid, index) => {
-      const isCancelled =
-        (index < winnersCount && !!bid.info.cancelled) ||
-        (auctionState !== AuctionState.Ended && !!bid.info.cancelled);
+    return bids
+      .map((bid, index) => {
+        const isCancelled =
+          (index < winnersCount && !!bid.info.cancelled) ||
+          (auctionState !== AuctionState.Ended && !!bid.info.cancelled);
 
-      const line = (
-        <BidLine
-          bid={bid}
-          index={activeBidIndex}
-          key={index}
-          mint={mint}
-          isCancelled={isCancelled}
-          isActive={!bid.info.cancelled}
-          mintKey={auctionView?.auction.info.tokenMint || ''}
-        />
-      );
+        const line = (
+          <BidLine
+            bid={bid}
+            index={activeBidIndex}
+            key={index}
+            mint={mint}
+            isCancelled={isCancelled}
+            isActive={!bid.info.cancelled}
+            mintKey={auctionView?.auction.info.tokenMint || ''}
+          />
+        );
 
-      if (!isCancelled) {
-        activeBidIndex++;
-      }
+        if (!isCancelled) {
+          activeBidIndex++;
+        }
 
-      return line;
-    });
+        return line;
+      })
+      .reverse();
   }, [auctionState, bids, activeBidders]);
 
   if (!auctionView || bids.length < 1) return null;
