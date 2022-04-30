@@ -689,7 +689,8 @@ export const AuctionBids = ({
     <Row>
       <Col className="bids-lists">
         <h6 className={'info-title'}>
-          {auctionView.isInstantSale ? 'Sale' : 'Bid'} History
+          {auctionView.isInstantSale ? 'Sale' : 'Bid'} History (
+          {`${bidLines.length}`})
         </h6>
         {bidLines.slice(0, 10)}
         {bids.length > 10 && (
@@ -706,7 +707,9 @@ export const AuctionBids = ({
         <MetaplexModal
           visible={showHistoryModal}
           onCancel={() => setShowHistoryModal(false)}
-          title="Bid history"
+          title={`${auctionView.isInstantSale ? 'Sale' : 'Bid'} History (${
+            bidLines.length
+          })`}
           bodyStyle={{
             background: 'unset',
             boxShadow: 'unset',
