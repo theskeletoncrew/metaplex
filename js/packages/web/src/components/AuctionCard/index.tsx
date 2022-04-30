@@ -971,8 +971,6 @@ export const AuctionCard = ({
         content={`You have claimed your item from ${creators.map(
           item => ' ' + (item.name || shortenAddress(item.address || '')),
         )}!`}
-        extraButtonText="View My Items"
-        onClickExtraButton={() => history.push('/artworks')}
       />
     </div>
   );
