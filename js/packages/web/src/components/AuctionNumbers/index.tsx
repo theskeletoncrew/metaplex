@@ -12,6 +12,7 @@ import { AuctionView, AuctionViewState, useBidsForAuction } from '../../hooks';
 import { AmountLabel } from '../AmountLabel';
 import { useAuctionCountdown } from '../../hooks/useAuctionCountdown';
 import { useTokenList } from '../../contexts/tokenList';
+import { MintInfo, u64 } from '@solana/spl-token';
 
 export const AuctionCountdown = (props: {
   auctionView: AuctionView;
@@ -63,16 +64,26 @@ export const AuctionNumbers = (props: {
       {(!ended || auctionView.isInstantSale) && (
         <>
           {(isUpcoming || bids.length === 0 || auctionView.isInstantSale) && (
-            <AmountLabel
-              displaySymbol={tokenInfo?.symbol || 'CUSTOM'}
-              style={{ marginBottom: props.showAsRow ? 0 : 10 }}
-              title={auctionView.isInstantSale ? 'Price' : 'Starting bid'}
-              tokenInfo={tokenInfo}
-              amount={fromLamports(
-                participationOnly ? participationFixedPrice : priceFloor,
-                mintInfo,
-              )}
-            />
+            <>
+              <AmountLabel
+                displaySymbol={tokenInfo?.symbol || 'CUSTOM'}
+                style={{ marginBottom: props.showAsRow ? 0 : 10 }}
+                title={auctionView.isInstantSale ? 'Price' : 'Starting bid'}
+                tokenInfo={tokenInfo}
+                amount={fromLamports(
+                  participationOnly ? participationFixedPrice : priceFloor,
+                  participationOnly
+                    ? ({
+                        mintAuthority: null,
+                        supply: new u64(0),
+                        decimals: 9,
+                        isInitialized: true,
+                        freezeAuthority: null,
+                      } as MintInfo)
+                    : mintInfo,
+                )}
+              />
+            </>
           )}
           {!auctionView.isInstantSale && isStarted && bids.length > 0 && (
             <AmountLabel
