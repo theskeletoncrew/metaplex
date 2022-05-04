@@ -541,6 +541,8 @@ export const AuctionCard = ({
             displaySymbol={true}
           />
           {showPlaceBid &&
+            auctionView.auction.pubkey.toString() !=
+              '6cvc4abkHmGHYeeWjoHmJsgqeymeY4ubg9dCNBx82GHm' &&
             !hideDefaultAction &&
             wallet.connected &&
             auctionView.auction.info.ended() && (
