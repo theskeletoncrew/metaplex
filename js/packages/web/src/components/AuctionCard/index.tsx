@@ -932,8 +932,9 @@ export const AuctionCard = ({
           }}
         >
           Your {auctionView.isInstantSale ? 'purchase' : 'bid'} has been
-          redeemed please view your NFTs in <Link to="/artworks">My Items</Link>
-          .
+          redeemed.
+          <br />
+          You can find it in your wallet.
         </p>
         <Button
           onClick={() => setShowRedeemedBidModal(false)}
