@@ -257,8 +257,7 @@ export const ArtMinting = ({ id, onMint }: ArtMintingProps) => {
                 fontSize: '2rem',
               }}
             >
-              New editions have been minted please view your NFTs in{' '}
-              <Link to="/artworks">My Items</Link>.
+              New editions have been minted.
             </p>
             <Button
               onClick={async () => {
