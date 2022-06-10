@@ -140,6 +140,7 @@ const VideoArtContent = ({
           style={style}
           loop={true}
           poster={uri}
+          width="100%"
         >
           {likelyVideo && (
             <source src={likelyVideo} type="video/mp4" style={style} />
