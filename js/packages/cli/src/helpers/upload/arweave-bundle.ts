@@ -501,7 +501,7 @@ export async function* makeArweaveBundleUploadGenerator(
             walletKeyPair.secretKey,
             {
               timeout: 60000,
-              providerUrl: rpcUrl ?? 'https://api.metaplex.solana.com',
+              providerUrl: rpcUrl ?? 'https://ssc-dao.genesysgo.net/',
             },
           )
         : new Bundlr(

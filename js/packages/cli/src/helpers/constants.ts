@@ -121,7 +121,7 @@ type Cluster = {
 export const CLUSTERS: Cluster[] = [
   {
     name: 'mainnet-beta',
-    url: 'https://api.metaplex.solana.com/',
+    url: 'https://ssc-dao.genesysgo.net/',
   },
   {
     name: 'testnet',
